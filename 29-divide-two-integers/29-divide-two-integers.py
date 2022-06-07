@@ -20,7 +20,3 @@ class Solution:
 if __name__ == '__main__':
     # begin
     print(Solution().divide(-1021418889,1064910933))
-        
-if __name__ == '__main__':
-    # begin
-    print(Solution().divide(-1021418889,1064910933))
