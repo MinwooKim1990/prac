@@ -1,22 +1,16 @@
 class Solution:
     def islandPerimeter(self, grid: List[List[int]]) -> int:
-        tot=0
-        for i in grid:
-            tot=tot+sum(i)
-        find_ind={}
-        tot_minus_v=0
-        tot_minus_h=0
-        for i in range(len(grid)):
-            temp=[]
-            for j in range(len(grid[i])):
+        rows, cols = len(grid), len(grid[0])
+        perimeter = 0
+
+        for i in range(rows):
+            for j in range(cols):
                 if grid[i][j] == 1:
-                    temp.append(j)
-                    if j >0 :
-                        if j-1 in temp:
-                            tot_minus_h+=1
-            find_ind[i]=temp
-            if i > 0:
-                for k in find_ind[i-1]:
-                    if k in find_ind[i]:
-                        tot_minus_v+=1
-        return 4*tot-2*tot_minus_v-2*tot_minus_h
+                    perimeter += 4
+                    # Check the cell to the right
+                    if j < cols - 1 and grid[i][j+1] == 1:
+                        perimeter -= 2
+                    # Check the cell below
+                    if i < rows - 1 and grid[i+1][j] == 1:
+                        perimeter -= 2
+        return perimeter
