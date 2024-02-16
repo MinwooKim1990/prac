@@ -19,7 +19,4 @@ class Solution:
                 for k in find_ind[i-1]:
                     if k in find_ind[i]:
                         tot_minus_v+=1
-        print(tot)
-        print(tot_minus_v)
-        print(tot_minus_h)
         return 4*tot-2*tot_minus_v-2*tot_minus_h
